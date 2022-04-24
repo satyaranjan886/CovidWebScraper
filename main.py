@@ -21,8 +21,14 @@ def get_covid_detail_bd():
 
 
     for block in info_div:
-        text = block.find("h1", class_=None).get_text()
-        count = block.find("span", class_=None).get_text()
+        try:
+            text = block.find("h1", class_=None).get_text()
+        except:
+            pass
+        try:
+            count = block.find("span", class_=None).get_text()
+        except:
+            pass
         all_detail = all_detail + text + " " + count + "\n"
 
     return all_detail
